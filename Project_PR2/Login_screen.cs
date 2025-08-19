@@ -56,5 +56,13 @@ namespace Project_PR2
             product.ShowDialog();
             this.Visible = true;
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            register_Screen product = new register_Screen ();
+            this.Visible = false;
+            product.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

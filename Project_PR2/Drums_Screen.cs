@@ -16,5 +16,10 @@ namespace Project_PR2
         {
             InitializeComponent();
         }
+
+        private void Drums_Screen_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -39,6 +39,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Drums_Screen";
             this.Text = "Drums_Screen";
+            this.Load += new System.EventHandler(this.Drums_Screen_Load);
             this.ResumeLayout(false);
 
         }
