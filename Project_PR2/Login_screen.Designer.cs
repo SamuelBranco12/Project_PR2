@@ -101,6 +101,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login_screen";
             this.Text = "Login_screen";
+            this.Load += new System.EventHandler(this.Login_screen_Load);
             this.Click += new System.EventHandler(this.textBox2_clock);
             this.ResumeLayout(false);
             this.PerformLayout();

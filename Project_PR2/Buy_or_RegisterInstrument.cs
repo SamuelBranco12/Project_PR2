@@ -24,5 +24,10 @@ namespace Project_PR2
             product.ShowDialog();
             this.Visible = true;
         }
+
+        private void Buy_or_RegisterInstrument_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

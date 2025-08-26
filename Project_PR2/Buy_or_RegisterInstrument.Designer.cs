@@ -92,6 +92,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Buy_or_RegisterInstrument";
             this.Text = "Buy_or_RegisterInstrument";
+            this.Load += new System.EventHandler(this.Buy_or_RegisterInstrument_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
