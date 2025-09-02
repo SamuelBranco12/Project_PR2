@@ -29,5 +29,13 @@ namespace Project_PR2
         {
 
         }
+
+        private void Register_Instrumentbtn_Click(object sender, EventArgs e)
+        {
+            Register_instrument_screen product = new Register_instrument_screen();
+            this.Visible = false;
+            product.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

@@ -79,5 +79,75 @@ namespace Project_PR2.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2025_08_26_104216 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2025-08-26 104216", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2025_09_02_121806 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2025-09-02 121806", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2025_09_02_122222 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2025-09-02 122222", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2025_09_02_122559 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2025-09-02 122559", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2025_09_02_123302 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2025-09-02 123302", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2025_09_02_123551 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2025-09-02 123551", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2025_09_02_124339 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2025-09-02 124339", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

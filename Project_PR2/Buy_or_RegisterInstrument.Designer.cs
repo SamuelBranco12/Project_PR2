@@ -60,6 +60,7 @@
             this.Register_Instrumentbtn.TabIndex = 1;
             this.Register_Instrumentbtn.Text = "Register Instrument";
             this.Register_Instrumentbtn.UseVisualStyleBackColor = false;
+            this.Register_Instrumentbtn.Click += new System.EventHandler(this.Register_Instrumentbtn_Click);
             // 
             // OR
             // 

@@ -60,6 +60,10 @@ namespace Project_PR2
                     {
                         MessageBox.Show("Este e-mail já está cadastrado.");
                     }
+                    Buy_or_RegisterInstrument product = new Buy_or_RegisterInstrument();
+                    this.Visible = false;
+                    product.ShowDialog();
+                    this.Visible = true;
                 }
             }
         }
@@ -78,13 +82,18 @@ namespace Project_PR2
             }
 
         }
-
+        
         private void Userbtn_TextChanged(object sender, EventArgs e)
         {
              
         }
 
         private void register_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

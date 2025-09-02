@@ -104,6 +104,12 @@
     <Compile Include="register.Designer.cs">
       <DependentUpon>register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Register_instrument_screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register_instrument_screen.Designer.cs">
+      <DependentUpon>Register_instrument_screen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AcousticGuitar_Screen.resx">
       <DependentUpon>AcousticGuitar_Screen.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +144,9 @@
     <EmbeddedResource Include="register.resx">
       <DependentUpon>register.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Register_instrument_screen.resx">
+      <DependentUpon>Register_instrument_screen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="CJ3022404PR2DataSet.xsc">
       <DependentUpon>CJ3022404PR2DataSet.xsd</DependentUpon>
     </None>
@@ -171,6 +180,27 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-09-02 121806.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-09-02 122222.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-09-02 122559.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-08-26 104216.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-09-02 123302.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-09-02 123551.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-09-02 124339.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
