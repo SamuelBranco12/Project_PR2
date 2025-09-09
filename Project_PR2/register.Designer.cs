@@ -51,7 +51,7 @@
             // 
             this.emailbtn1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.emailbtn1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailbtn1.Location = new System.Drawing.Point(114, 357);
+            this.emailbtn1.Location = new System.Drawing.Point(109, 362);
             this.emailbtn1.Name = "emailbtn1";
             this.emailbtn1.Size = new System.Drawing.Size(127, 13);
             this.emailbtn1.TabIndex = 2;
@@ -60,7 +60,7 @@
             // 
             this.passbtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.passbtn.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passbtn.Location = new System.Drawing.Point(144, 438);
+            this.passbtn.Location = new System.Drawing.Point(144, 443);
             this.passbtn.Name = "passbtn";
             this.passbtn.Size = new System.Drawing.Size(127, 13);
             this.passbtn.TabIndex = 3;

@@ -66,6 +66,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CJ3022404PR2DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="cymbals_screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cymbals_screen.Designer.cs">
+      <DependentUpon>cymbals_screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Drums_Screen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buy_or_RegisterInstrument.resx">
       <DependentUpon>Buy_or_RegisterInstrument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cymbals_screen.resx">
+      <DependentUpon>cymbals_screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Drums_Screen.resx">
       <DependentUpon>Drums_Screen.cs</DependentUpon>
@@ -201,6 +210,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Captura de tela 2025-09-02 124339.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-09-09 115423.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-09-09 120540.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
