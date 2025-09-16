@@ -72,6 +72,12 @@
     <Compile Include="cymbals_screen.Designer.cs">
       <DependentUpon>cymbals_screen.cs</DependentUpon>
     </Compile>
+    <Compile Include="drumset_screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="drumset_screen.Designer.cs">
+      <DependentUpon>drumset_screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Drums_Screen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Captura de tela 2025-09-09 120540.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-09-16 125201.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

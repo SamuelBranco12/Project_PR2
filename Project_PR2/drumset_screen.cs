@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Project_PR2
 {
-    public partial class cymbals_screen : Form
+    public partial class drumset_screen : Form
     {
-        public cymbals_screen()
+        public drumset_screen()
         {
             InitializeComponent();
-        }
-
-        private void ibanez_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
