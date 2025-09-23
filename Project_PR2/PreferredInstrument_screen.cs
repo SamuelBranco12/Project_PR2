@@ -24,7 +24,7 @@ namespace Project_PR2
 
         private void Drumbtn_Click(object sender, EventArgs e)
         {
-           Drums_Screen product = new Drums_Screen();
+           Drums_screen product = new Drums_screen();
             this.Visible = false;
             product.ShowDialog();
             this.Visible = true;
@@ -40,10 +40,7 @@ namespace Project_PR2
 
         private void Guitarbtn_Click(object sender, EventArgs e)
         {
-            Guitar_Screen product = new Guitar_Screen();
-            this.Visible = false;
-            product.ShowDialog();
-            this.Visible = true;
+            
         }
     }
 }

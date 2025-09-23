@@ -66,35 +66,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CJ3022404PR2DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="cymbals_screen.cs">
+    <Compile Include="Drums_screen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="cymbals_screen.Designer.cs">
-      <DependentUpon>cymbals_screen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="drumset_screen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="drumset_screen.Designer.cs">
-      <DependentUpon>drumset_screen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Drums_Screen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Drums_Screen.Designer.cs">
-      <DependentUpon>Drums_Screen.cs</DependentUpon>
+    <Compile Include="Drums_screen.Designer.cs">
+      <DependentUpon>Drums_screen.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Guitar_Screen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Guitar_Screen.Designer.cs">
-      <DependentUpon>Guitar_Screen.cs</DependentUpon>
     </Compile>
     <Compile Include="Login_screen.cs">
       <SubType>Form</SubType>
@@ -128,17 +110,11 @@
     <EmbeddedResource Include="Buy_or_RegisterInstrument.resx">
       <DependentUpon>Buy_or_RegisterInstrument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="cymbals_screen.resx">
-      <DependentUpon>cymbals_screen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Drums_Screen.resx">
-      <DependentUpon>Drums_Screen.cs</DependentUpon>
+    <EmbeddedResource Include="Drums_screen.resx">
+      <DependentUpon>Drums_screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Guitar_Screen.resx">
-      <DependentUpon>Guitar_Screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_screen.resx">
       <DependentUpon>Login_screen.cs</DependentUpon>
@@ -225,6 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Captura de tela 2025-09-16 125201.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-09-23 105749.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-09-23 115240.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
