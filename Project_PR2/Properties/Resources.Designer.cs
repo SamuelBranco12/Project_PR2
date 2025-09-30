@@ -199,5 +199,15 @@ namespace Project_PR2.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2025_09_30_110009 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2025-09-30 110009", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

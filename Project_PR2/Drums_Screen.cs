@@ -13,58 +13,118 @@ namespace Project_PR2
 {
     public partial class Drums_screen : Form
     {
-        public Drums_screen()
+        public Drums_screen ()
         {
             InitializeComponent();
+           
         }
 
-        private void Drums_Screen_Load(object sender, EventArgs e)
+        private void Drums_screenLoad(object sender, EventArgs e)
         {
-
+            
+            CarregarTodosInstrumentos();
         }
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LojaInstrumentos;Integrated Security=True";
+private DataTable dadosCompletos = new DataTable();
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+       
+
+
+private void CarregarTodosInstrumentos()
         {
-            string termoPesquisa = textpesq1.Text; // Sua TextBox de pesquisa
-            string conexao = "Data Source=sqlexpress;Initial Catalog=CJ3022U@MPR2;User ID=aluno;Password=aluno;";
-
-            using (SqlConnection conn = new SqlConnection(conexao))
+            try
             {
-                conn.Open();
-
-                // Query para pesquisar instrumentos
-                string pesquisaSql = @"
-        SELECT * FROM Instrumentos 
-        WHERE Nome LIKE @Termo 
-           OR Marca LIKE @Termo 
-           OR Descricao LIKE @Termo 
-           OR Categoria LIKE @Termo";
-
-                using (SqlCommand pesquisaCmd = new SqlCommand(pesquisaSql, conn))
+                using (System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(connectionString))
                 {
-                    pesquisaCmd.Parameters.AddWithValue("@Termo", $"%{termoPesquisa}%");
+                    connection.Open();
+                    string query = "SELECT InstrumentID, Name, Brand, Category, Price, QuantityInStock, CreatedAt, UpdatedAt FROM Instruments";
 
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(pesquisaCmd))
+                    using (System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection))
                     {
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-
-                        // Exibir resultados no DataGridView
-                        dataGridViewinstruments.DataSource = dt;
-
-                        if (dt.Rows.Count > 0)
+                        using (System.Data.SqlClient.SqlDataAdapter adapter = new System.Data.SqlClient.SqlDataAdapter(command))
                         {
-                            MessageBox.Show($"{dt.Rows.Count} instrumento(s) encontrado(s)!", "Resultado",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Nenhum instrumento encontrado.", "Resultado",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            dadosCompletos.Clear();
+                            adapter.Fill(dadosCompletos);
+                            datainstrumentview.DataSource = dadosCompletos;
+
+                            
                         }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar instrumentos: " + ex.Message);
+            }
+        }
+
+
+        
+
+
+
+
+
+
+
+        private void datainstrumentview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+      
+       
+        private void Drums_screen_Load(object sender, EventArgs e)
+        {
+           
+            this.instrumentsTableAdapter1.Fill(this.cJ3022404PR2DataSet2.Instruments);
+
+        }
+
+        private void textpesq1_TextChanged(object sender, EventArgs e)
+        {
+            string textoPesquisa = textpesq1.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(textoPesquisa))
+            {
+                // Se estiver vazio, mostra todos os instrumentos
+                datainstrumentview.DataSource = dadosCompletos;
+            }
+            else
+            {
+                // Filtra os dados
+                DataTable resultados = new DataTable();
+                resultados = dadosCompletos.Clone();
+
+                foreach (DataRow row in dadosCompletos.Rows)
+                {
+                    bool encontrou = false;
+
+                    // Pesquisa em Nome
+                    if (row["Name"] != DBNull.Value && row["Name"].ToString().ToLower().Contains(textoPesquisa))
+                        encontrou = true;
+                    // Pesquisa em Marca
+                    else if (row["Brand"] != DBNull.Value && row["Brand"].ToString().ToLower().Contains(textoPesquisa))
+                        encontrou = true;
+                    // Pesquisa em Categoria
+                    else if (row["Category"] != DBNull.Value && row["Category"].ToString().ToLower().Contains(textoPesquisa))
+                        encontrou = true;
+                    // Pesquisa em ID
+                    else if (row["InstrumentID"] != DBNull.Value && row["InstrumentID"].ToString().Contains(textoPesquisa))
+                        encontrou = true;
+
+                    if (encontrou)
+                    {
+                        resultados.ImportRow(row);
+                    }
+                }
+
+                datainstrumentview.DataSource = resultados;
+            }
         }
     }
-}
+    }
+
+
+
+
