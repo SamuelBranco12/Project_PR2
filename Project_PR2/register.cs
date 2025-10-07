@@ -25,7 +25,6 @@ namespace Project_PR2
             string username = Userbtn.Text;
             string senha = passbtn.Text;
 
-
             string conexao = "Data Source=sqlexpress;Initial Catalog=CJ3022404PR2;User ID = aluno; Password = aluno;";
 
             // Gerar hash da senha
@@ -36,39 +35,56 @@ namespace Project_PR2
                 conn.Open();
 
                 // Verifica se o email já existe
-                string verificaSql = "SELECT COUNT(*) FROM USERS WHERE Email=@Email";
-                using (SqlCommand verificaCmd = new SqlCommand(verificaSql, conn))
+                string verificaEmailSql = "SELECT COUNT(*) FROM USERS WHERE Email = @Email";
+                using (SqlCommand verificaEmailCmd = new SqlCommand(verificaEmailSql, conn))
                 {
-                    verificaCmd.Parameters.AddWithValue("@Email", email);
-                    int count = (int)verificaCmd.ExecuteScalar();
+                    verificaEmailCmd.Parameters.AddWithValue("@Email", email);
+                    int emailCount = (int)verificaEmailCmd.ExecuteScalar();
 
-                    if (count == 0)
+                    // Verifica se o username já existe
+                    string verificaUsernameSql = "SELECT COUNT(*) FROM USERS WHERE Username = @Username";
+                    using (SqlCommand verificaUsernameCmd = new SqlCommand(verificaUsernameSql, conn))
                     {
-                        // Inserir novo usuário
-                        string insertSql = "INSERT INTO USERS (Username, Email, PasswordHash, CreatedAt) VALUES (@Username, @Email, @PasswordHash, @CreatedAt)";
-                        using (SqlCommand insertCmd = new SqlCommand(insertSql, conn))
-                        {
-                            insertCmd.Parameters.AddWithValue("@Username", username);
-                            insertCmd.Parameters.AddWithValue("@Email", email);
-                            insertCmd.Parameters.AddWithValue("@PasswordHash", senhaHash);
-                            insertCmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
+                        verificaUsernameCmd.Parameters.AddWithValue("@Username", username);
+                        int usernameCount = (int)verificaUsernameCmd.ExecuteScalar();
 
-                            insertCmd.ExecuteNonQuery();
+                        if (emailCount > 0)
+                        {
+                            MessageBox.Show("Este e-mail já está cadastrado.", "Erro",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else if (usernameCount > 0)
+                        {
+                            MessageBox.Show("Este nome de usuário já está em uso.", "Erro",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            // Inserir novo usuário
+                            string insertSql = "INSERT INTO USERS (Username, Email, PasswordHash, CreatedAt) VALUES (@Username, @Email, @PasswordHash, @CreatedAt)";
+                            using (SqlCommand insertCmd = new SqlCommand(insertSql, conn))
+                            {
+                                insertCmd.Parameters.AddWithValue("@Username", username);
+                                insertCmd.Parameters.AddWithValue("@Email", email);
+                                insertCmd.Parameters.AddWithValue("@PasswordHash", senhaHash);
+                                insertCmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
+
+                                insertCmd.ExecuteNonQuery();
+                                MessageBox.Show("Registro realizado com sucesso!", "Sucesso",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                Buy_or_RegisterInstrument product = new Buy_or_RegisterInstrument();
+                                this.Visible = false;
+                                product.ShowDialog();
+                                this.Visible = true;
+                            }
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Este e-mail já está cadastrado.");
-                    }
-                    Buy_or_RegisterInstrument product = new Buy_or_RegisterInstrument();
-                    this.Visible = false;
-                    product.ShowDialog();
-                    this.Visible = true;
                 }
             }
         }
 
-        private string GerarHash(string input)
+private string GerarHash(string input)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -80,9 +96,7 @@ namespace Project_PR2
                 }
                 return builder.ToString();
             }
-
         }
-        
         private void Userbtn_TextChanged(object sender, EventArgs e)
         {
              

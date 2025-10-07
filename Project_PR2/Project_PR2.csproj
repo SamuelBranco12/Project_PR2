@@ -71,23 +71,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CJ3022404PR2DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Drums_Screen.cs">
+    <Compile Include="Drums_screen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Drums_Screen.Designer.cs">
-      <DependentUpon>Drums_Screen.cs</DependentUpon>
+    <Compile Include="Drums_screen.Designer.cs">
+      <DependentUpon>Drums_screen.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Guitar_Screen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Guitar_Screen.Designer.cs">
-      <DependentUpon>Guitar_Screen.cs</DependentUpon>
     </Compile>
     <Compile Include="Login_screen.cs">
       <SubType>Form</SubType>
@@ -126,9 +120,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Guitar_Screen.resx">
-      <DependentUpon>Guitar_Screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_screen.resx">
       <DependentUpon>Login_screen.cs</DependentUpon>

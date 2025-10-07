@@ -39,12 +39,12 @@
             // 
             this.usertxt.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.usertxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.usertxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usertxt.Location = new System.Drawing.Point(59, 264);
             this.usertxt.Multiline = true;
             this.usertxt.Name = "usertxt";
             this.usertxt.Size = new System.Drawing.Size(211, 20);
             this.usertxt.TabIndex = 1;
-            this.usertxt.Text = "USER:\r\n";
             this.usertxt.Click += new System.EventHandler(this.textBox2_clock);
             this.usertxt.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -52,11 +52,12 @@
             // 
             this.passtxt.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.passtxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passtxt.Location = new System.Drawing.Point(59, 344);
             this.passtxt.Name = "passtxt";
-            this.passtxt.Size = new System.Drawing.Size(172, 13);
+            this.passtxt.PasswordChar = '•';
+            this.passtxt.Size = new System.Drawing.Size(172, 22);
             this.passtxt.TabIndex = 2;
-            this.passtxt.Text = "PASSWORD:";
             this.passtxt.Click += new System.EventHandler(this.textBox1_Click);
             this.passtxt.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 

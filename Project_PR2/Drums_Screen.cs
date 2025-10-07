@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Project_PR2
 {
-    public partial class Drums_Screen : Form
+    public partial class Drums_screen : Form
     {
         private string connectionString = "Data Source=sqlexpress;Initial Catalog=CJ3022404PR2;User ID=aluno;Password=aluno;";
         private DataTable dadosCompletos = new DataTable();
@@ -186,6 +186,12 @@ namespace Project_PR2
         {
 
 
+                datainstrumentview.DataSource = resultados;
+            }
         }
     }
-}
+    }
+
+
+
+

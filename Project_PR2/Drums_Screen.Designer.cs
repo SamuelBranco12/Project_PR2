@@ -1,6 +1,6 @@
 ﻿namespace Project_PR2
 {
-    partial class Drums_Screen
+    partial class Drums_screen
     {
         /// <summary>
         /// Required designer variable.
@@ -179,7 +179,7 @@
             this.textpesq1.TabIndex = 2;
             this.textpesq1.TextChanged += new System.EventHandler(this.textpesq1_TextChanged);
             // 
-            // Drums_Screen
+            // Drums_screen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,7 +190,7 @@
             this.Controls.Add(this.confirmbtn);
             this.ForeColor = System.Drawing.SystemColors.Menu;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Drums_Screen";
+            this.Name = "Drums_screen";
             this.Text = "Drums_Screen";
             this.Load += new System.EventHandler(this.Drums_Screen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.datagridint)).EndInit();
