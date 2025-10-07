@@ -66,11 +66,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CJ3022404PR2DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="cymbals_screen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="cymbals_screen.Designer.cs">
-      <DependentUpon>cymbals_screen.cs</DependentUpon>
+    <Compile Include="CJ3022404PR2DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CJ3022404PR2DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Drums_Screen.cs">
       <SubType>Form</SubType>
@@ -122,9 +121,6 @@
     <EmbeddedResource Include="Buy_or_RegisterInstrument.resx">
       <DependentUpon>Buy_or_RegisterInstrument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="cymbals_screen.resx">
-      <DependentUpon>cymbals_screen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Drums_Screen.resx">
       <DependentUpon>Drums_Screen.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +162,17 @@
     </None>
     <None Include="CJ3022404PR2DataSet.xss">
       <DependentUpon>CJ3022404PR2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CJ3022404PR2DataSet1.xsc">
+      <DependentUpon>CJ3022404PR2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CJ3022404PR2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CJ3022404PR2DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CJ3022404PR2DataSet1.xss">
+      <DependentUpon>CJ3022404PR2DataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\DataSources\Project_PR2.CJ3022404PR2DataSetTableAdapters.USERSTableAdapter.datasource" />
     <None Include="Properties\Settings.settings">
@@ -216,6 +223,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Captura de tela 2025-09-09 120540.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-10-07 080335.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-10-07 085031.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-10-07 122607.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

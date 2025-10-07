@@ -64,7 +64,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label2.Location = new System.Drawing.Point(104, 470);
+            this.label2.Location = new System.Drawing.Point(101, 470);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(177, 13);
             this.label2.TabIndex = 5;
@@ -73,12 +73,16 @@
             // 
             // Enterbtn
             // 
-            this.Enterbtn.Location = new System.Drawing.Point(156, 418);
+            this.Enterbtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Enterbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Enterbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Enterbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Enterbtn.Location = new System.Drawing.Point(150, 411);
             this.Enterbtn.Name = "Enterbtn";
-            this.Enterbtn.Size = new System.Drawing.Size(75, 23);
+            this.Enterbtn.Size = new System.Drawing.Size(75, 33);
             this.Enterbtn.TabIndex = 6;
             this.Enterbtn.Text = "ENTER";
-            this.Enterbtn.UseVisualStyleBackColor = true;
+            this.Enterbtn.UseVisualStyleBackColor = false;
             this.Enterbtn.Click += new System.EventHandler(this.Enterbtn_Click);
             // 
             // Login_screen

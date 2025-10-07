@@ -169,5 +169,35 @@ namespace Project_PR2.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2025_10_07_080335 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2025-10-07 080335", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2025_10_07_085031 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2025-10-07 085031", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_tela_2025_10_07_122607 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de tela 2025-10-07 122607", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
