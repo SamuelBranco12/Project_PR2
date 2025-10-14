@@ -13,14 +13,14 @@ namespace Project_PR2
 {
     public partial class Drums_screen : Form
     {
-        private string connectionString = "Data Source=sqlexpress;Initial Catalog=CJ3022404PR2;User ID=aluno;Password=aluno;";
+        private string connectionString = "Data Source=sqlexpress;Initial Catalog=CJ3022d04PR2;User ID=aluno;Password=aluno;";
         private DataTable dadosCompletos = new DataTable();
 
-
-        public Drums_Screen()
+        public Drums_screen()
         {
             InitializeComponent();
         }
+
         private void CarregarTodosDados()
         {
             using (SqlConnection conexao = new SqlConnection(connectionString))
@@ -181,13 +181,9 @@ namespace Project_PR2
             }
         }
 
-       
         private void datagridint_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-
-                datainstrumentview.DataSource = resultados;
-            }
         }
     }
     }

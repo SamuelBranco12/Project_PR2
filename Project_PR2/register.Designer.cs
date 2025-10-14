@@ -31,9 +31,6 @@
             this.Userbtn = new System.Windows.Forms.TextBox();
             this.emailbtn1 = new System.Windows.Forms.TextBox();
             this.passbtn = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -65,42 +62,6 @@
             this.passbtn.Size = new System.Drawing.Size(127, 13);
             this.passbtn.TabIndex = 3;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(60, 275);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "User";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(60, 357);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Email";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(60, 438);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Password";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -122,9 +83,6 @@
             this.BackgroundImage = global::Project_PR2.Properties.Resources.Captura_de_tela_2025_09_02_123551;
             this.ClientSize = new System.Drawing.Size(1169, 659);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.passbtn);
             this.Controls.Add(this.emailbtn1);
             this.Controls.Add(this.Userbtn);
@@ -140,9 +98,6 @@
         private System.Windows.Forms.TextBox Userbtn;
         private System.Windows.Forms.TextBox emailbtn1;
         private System.Windows.Forms.TextBox passbtn;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
     }
 }
