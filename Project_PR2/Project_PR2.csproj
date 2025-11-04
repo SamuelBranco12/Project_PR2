@@ -109,6 +109,7 @@
     <Compile Include="Register_instrument_screen.Designer.cs">
       <DependentUpon>Register_instrument_screen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="AcousticGuitar_Screen.resx">
       <DependentUpon>AcousticGuitar_Screen.cs</DependentUpon>
     </EmbeddedResource>

@@ -13,7 +13,7 @@ namespace Project_PR2
 {
     public partial class Drums_screen : Form
     {
-        private string connectionString = "Data Source=sqlexpress;Initial Catalog=CJ3022d04PR2;User ID=aluno;Password=aluno;";
+        private string connectionString = "Data Source=sqlexpress;Initial Catalog=CJ3022404PR2;User ID=aluno;Password=aluno;";
         private DataTable dadosCompletos = new DataTable();
 
         public Drums_screen()
@@ -38,6 +38,88 @@ namespace Project_PR2
                     }
                 }
             }
+
+
+
+        }
+        string sqlexpress = @"INSERT INTO Purchases (UserID, InstrumentID, ProductName, Price, Quantity, Total, PurchaseDate)
+                     VALUES (@UserID, @InstrumentID, @ProductName, @Price, @Quantity, @Total, GETDATE())";
+        private void ComprarInstrumento(int instrumentID, string nome, decimal preco, int quantidade)
+        {
+            try
+            {
+                using (SqlConnection conexao = new SqlConnection(connectionString))
+                {
+                    conexao.Open();
+
+                    // 1. Verificar estoque
+                    string sqlEstoque = "SELECT QuantityInStock FROM Instruments WHERE InstrumentID = @InstrumentID";
+                    int estoqueAtual = 0;
+
+                    using (SqlCommand comandoEstoque = new SqlCommand(sqlEstoque, conexao))
+                    {
+                        comandoEstoque.Parameters.AddWithValue("@InstrumentID", instrumentID);
+                        estoqueAtual = (int)comandoEstoque.ExecuteScalar();
+                    }
+
+                    if (estoqueAtual < quantidade)
+                    {
+                        MessageBox.Show($"Estoque insuficiente! Disponível: {estoqueAtual} unidades",
+                            "Studio Shodwe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // 2. Registrar compra na tabela Purchases
+                    string sqlCompra = @"INSERT INTO Purchases (UserID, InstrumentID, ProductName, Price, Quantity, Total, PurchaseDate)
+                                 VALUES (@UserID, @InstrumentID, @ProductName, @Price, @Quantity, @Total, GETDATE())";
+
+                    decimal total = preco * quantidade;
+
+                    using (SqlCommand comandoCompra = new SqlCommand(sqlCompra, conexao))
+                    {
+                        comandoCompra.Parameters.AddWithValue("@UserID", UserSession.UserID);
+                        comandoCompra.Parameters.AddWithValue("@InstrumentID", instrumentID);
+                        comandoCompra.Parameters.AddWithValue("@ProductName", nome);
+                        comandoCompra.Parameters.AddWithValue("@Price", preco);
+                        comandoCompra.Parameters.AddWithValue("@Quantity", quantidade);
+                        comandoCompra.Parameters.AddWithValue("@Total", total);
+
+                        int linhasAfetadas = comandoCompra.ExecuteNonQuery();
+
+                        if (linhasAfetadas > 0)
+                        {
+                            // 3. Atualizar estoque
+                            string sqlUpdate = @"UPDATE Instruments 
+                                        SET QuantityInStock = QuantityInStock - @Quantidade, 
+                                            UpdatedAt = GETDATE()
+                                        WHERE InstrumentID = @InstrumentID";
+
+                            using (SqlCommand comandoUpdate = new SqlCommand(sqlUpdate, conexao))
+                            {
+                                comandoUpdate.Parameters.AddWithValue("@Quantidade", quantidade);
+                                comandoUpdate.Parameters.AddWithValue("@InstrumentID", instrumentID);
+                                comandoUpdate.ExecuteNonQuery();
+                            }
+
+                            MessageBox.Show($"✅ Compra realizada com sucesso!\n\n" +
+                                          $"📦 {quantidade}x {nome}\n" +
+                                          $"💵 Total: {total:C2}",
+                                          "Studio Shodwe - Compra Concluída",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Atualizar a lista de instrumentos
+                            CarregarTodosDados();
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"❌ Erro ao processar compra: {ex.Message}",
+                              "Studio Shodwe - Erro",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void ConfigurarDataGridView()
         {
@@ -58,7 +140,7 @@ namespace Project_PR2
             ConfigurarDataGridView();
 
         }
-       
+
 
 
         private void textpesq1_TextChanged(object sender, EventArgs e)
@@ -93,100 +175,39 @@ namespace Project_PR2
                 datagridint.DataSource = resultados;
             }
         }
-        
 
-        private void confirmbtn_Click(object sender, EventArgs e)
-        {
-            if (datagridint.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Por favor, selecione um instrumento para comprar.", "Aviso",
-                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
-            // Pegar dados do instrumento selecionado
-            DataGridViewRow linhaSelecionada = datagridint.SelectedRows[0];
-
-            int instrumentId = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
-            string nome = linhaSelecionada.Cells[1].Value.ToString();
-            string marca = linhaSelecionada.Cells[2].Value.ToString();
-            decimal preco = Convert.ToDecimal(linhaSelecionada.Cells[4].Value);
-            int estoque = Convert.ToInt32(linhaSelecionada.Cells[5].Value);
-            if (estoque <= 0)
-            {
-                MessageBox.Show($"Desculpe, o instrumento {nome} está fora de estoque!", "Sem Estoque",
-                              MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            // Confirmar compra
-            string mensagem = $"CONFIRMAR COMPRA:\n\n" +
-                            $"Instrumento: {nome}\n" +
-                            $"Marca: {marca}\n" +
-                            $"Preço: R$ {preco:F2}\n" +
-                            $"Estoque Disponível: {estoque} unidades\n\n" +
-                            $"Deseja confirmar a compra?";
-
-            DialogResult resultado = MessageBox.Show(mensagem, "Confirmar Compra",
-                                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (resultado == DialogResult.Yes)
-            {
-                // Processar compra
-                ProcessarCompra(instrumentId, nome, preco);
-            }
-        }
-
-        private void ProcessarCompra(int instrumentId, string nome, decimal preco)
-        {
-            try
-            {
-                string connectionString = "Data Source=sqlexpress;Initial Catalog=CJ3022404PR2;User ID=aluno;Password=aluno;";
-
-                using (SqlConnection conexao = new SqlConnection(connectionString))
-                {
-                    conexao.Open();
-
-                    // Diminuir o estoque
-                    string sqlAtualizarEstoque = "UPDATE Instruments SET QuantityInStock = QuantityInStock - 1 WHERE InstrumentID = @InstrumentID";
-
-                    using (SqlCommand comando = new SqlCommand(sqlAtualizarEstoque, conexao))
-                    {
-                        comando.Parameters.AddWithValue("@InstrumentID", instrumentId);
-                        int linhasAfetadas = comando.ExecuteNonQuery();
-
-                        if (linhasAfetadas > 0)
-                        {
-                            MessageBox.Show($"✅ Compra confirmada!\n\n" +
-                                          $"Instrumento: {nome}\n" +
-                                          $"Valor: R$ {preco:F2}\n\n" +
-                                          $"Obrigado pela compra!", "Compra Realizada",
-                                          MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            
-                            CarregarTodosDados();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erro ao processar a compra. Tente novamente.", "Erro",
-                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao processar compra: {ex.Message}", "Erro",
-                              MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+       
+         
 
         private void datagridint_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
+        private void confirmbtn_Click(object sender, EventArgs e)
+        {
+            if (datagridint.CurrentRow != null)
+            {
+                DataGridViewRow row = datagridint.CurrentRow;
+
+                // ✅ Obter valores corretamente
+                int instrumentID = Convert.ToInt32(row.Cells["InstrumentID"].Value);
+                string nome = row.Cells["Name"].Value.ToString();
+                decimal preco = Convert.ToDecimal(row.Cells["Price"].Value);
+                int quantidade = 1; // Ou do NumericUpDown
+
+                // ✅ Chamar o método
+                ComprarInstrumento(instrumentID, nome, preco, quantidade);
+
+
+            }
+        }
+
     }
-    }
+}
+
+    
 
 
 

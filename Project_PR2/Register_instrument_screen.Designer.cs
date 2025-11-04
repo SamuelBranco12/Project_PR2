@@ -47,7 +47,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(785, 264);
+            this.label2.Location = new System.Drawing.Point(724, 264);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 25);
             this.label2.TabIndex = 1;
@@ -59,7 +59,7 @@
             this.label3.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(785, 328);
+            this.label3.Location = new System.Drawing.Point(708, 328);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 25);
             this.label3.TabIndex = 2;
@@ -69,11 +69,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(785, 393);
+            this.label4.Location = new System.Drawing.Point(692, 389);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 25);
+            this.label4.Size = new System.Drawing.Size(85, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "Category";
             // 
@@ -83,7 +83,7 @@
             this.label5.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(785, 458);
+            this.label5.Location = new System.Drawing.Point(713, 457);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 25);
             this.label5.TabIndex = 4;
@@ -95,7 +95,7 @@
             this.label6.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(785, 523);
+            this.label6.Location = new System.Drawing.Point(694, 526);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 25);
             this.label6.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             this.Nametxb.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.Nametxb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Nametxb.Location = new System.Drawing.Point(834, 273);
+            this.Nametxb.Location = new System.Drawing.Point(793, 270);
             this.Nametxb.Name = "Nametxb";
             this.Nametxb.Size = new System.Drawing.Size(203, 13);
             this.Nametxb.TabIndex = 6;
@@ -115,7 +115,7 @@
             // 
             this.Brandtxb.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.Brandtxb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Brandtxb.Location = new System.Drawing.Point(851, 337);
+            this.Brandtxb.Location = new System.Drawing.Point(793, 334);
             this.Brandtxb.Name = "Brandtxb";
             this.Brandtxb.Size = new System.Drawing.Size(94, 13);
             this.Brandtxb.TabIndex = 7;
@@ -125,7 +125,7 @@
             // 
             this.Categtxb.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.Categtxb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Categtxb.Location = new System.Drawing.Point(882, 397);
+            this.Categtxb.Location = new System.Drawing.Point(791, 397);
             this.Categtxb.Name = "Categtxb";
             this.Categtxb.Size = new System.Drawing.Size(114, 13);
             this.Categtxb.TabIndex = 8;
@@ -135,7 +135,7 @@
             // 
             this.PriceTxb.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.PriceTxb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PriceTxb.Location = new System.Drawing.Point(843, 462);
+            this.PriceTxb.Location = new System.Drawing.Point(793, 465);
             this.PriceTxb.Name = "PriceTxb";
             this.PriceTxb.Size = new System.Drawing.Size(65, 13);
             this.PriceTxb.TabIndex = 9;
@@ -145,7 +145,7 @@
             // 
             this.InStocktxb.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.InStocktxb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.InStocktxb.Location = new System.Drawing.Point(864, 526);
+            this.InStocktxb.Location = new System.Drawing.Point(793, 531);
             this.InStocktxb.Name = "InStocktxb";
             this.InStocktxb.Size = new System.Drawing.Size(116, 13);
             this.InStocktxb.TabIndex = 10;
