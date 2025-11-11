@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -42,9 +43,7 @@ namespace Project_PR2
 
 
         }
-        string sqlexpress = @"INSERT INTO Purchases (UserID, InstrumentID, ProductName, Price, Quantity, Total, PurchaseDate)
-                     VALUES (@UserID, @InstrumentID, @ProductName, @Price, @Quantity, @Total, GETDATE())";
-        private void ComprarInstrumento(int instrumentID, string nome, decimal preco, int quantidade)
+        private void ComprarInstrumento(int instrumentID, int quantidade)
         {
             try
             {
@@ -52,14 +51,34 @@ namespace Project_PR2
                 {
                     conexao.Open();
 
-                    // 1. Verificar estoque
-                    string sqlEstoque = "SELECT QuantityInStock FROM Instruments WHERE InstrumentID = @InstrumentID";
+                    // 1. Buscar dados completos do instrumento
+                    string sqlInstrumento = @"SELECT Name, Brand, Category, Price, QuantityInStock 
+                                     FROM Instruments WHERE InstrumentID = @InstrumentID";
+
+                    string nome = "", marca = "", categoria = "";
+                    decimal preco = 0;
                     int estoqueAtual = 0;
 
-                    using (SqlCommand comandoEstoque = new SqlCommand(sqlEstoque, conexao))
+                    using (SqlCommand comandoInstrumento = new SqlCommand(sqlInstrumento, conexao))
                     {
-                        comandoEstoque.Parameters.AddWithValue("@InstrumentID", instrumentID);
-                        estoqueAtual = (int)comandoEstoque.ExecuteScalar();
+                        comandoInstrumento.Parameters.AddWithValue("@InstrumentID", instrumentID);
+
+                        using (SqlDataReader reader = comandoInstrumento.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nome = reader["Name"].ToString();
+                                marca = reader["Brand"].ToString();
+                                categoria = reader["Category"].ToString();
+                                preco = Convert.ToDecimal(reader["Price"]);
+                                estoqueAtual = Convert.ToInt32(reader["QuantityInStock"]);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Instrumento não encontrado!");
+                                return;
+                            }
+                        }
                     }
 
                     if (estoqueAtual < quantidade)
@@ -70,19 +89,32 @@ namespace Project_PR2
                     }
 
                     // 2. Registrar compra na tabela Purchases
-                    string sqlCompra = @"INSERT INTO Purchases (UserID, InstrumentID, ProductName, Price, Quantity, Total, PurchaseDate)
-                                 VALUES (@UserID, @InstrumentID, @ProductName, @Price, @Quantity, @Total, GETDATE())";
-
-                    decimal total = preco * quantidade;
+                    string sqlCompra = @"INSERT INTO Purchases (
+                                UserID,
+                                InstrumentName, 
+                                Brand, 
+                                Category, 
+                                Price, 
+                                Quantity, 
+                                PurchaseDate
+                            ) VALUES (
+                                @UserID,
+                                @InstrumentName, 
+                                @Brand, 
+                                @Category, 
+                                @Price, 
+                                @Quantity, 
+                                GETDATE()
+                            )";
 
                     using (SqlCommand comandoCompra = new SqlCommand(sqlCompra, conexao))
                     {
                         comandoCompra.Parameters.AddWithValue("@UserID", UserSession.UserID);
-                        comandoCompra.Parameters.AddWithValue("@InstrumentID", instrumentID);
-                        comandoCompra.Parameters.AddWithValue("@ProductName", nome);
+                        comandoCompra.Parameters.AddWithValue("@InstrumentName", nome);
+                        comandoCompra.Parameters.AddWithValue("@Brand", marca);
+                        comandoCompra.Parameters.AddWithValue("@Category", categoria);
                         comandoCompra.Parameters.AddWithValue("@Price", preco);
                         comandoCompra.Parameters.AddWithValue("@Quantity", quantidade);
-                        comandoCompra.Parameters.AddWithValue("@Total", total);
 
                         int linhasAfetadas = comandoCompra.ExecuteNonQuery();
 
@@ -90,9 +122,9 @@ namespace Project_PR2
                         {
                             // 3. Atualizar estoque
                             string sqlUpdate = @"UPDATE Instruments 
-                                        SET QuantityInStock = QuantityInStock - @Quantidade, 
-                                            UpdatedAt = GETDATE()
-                                        WHERE InstrumentID = @InstrumentID";
+                                    SET QuantityInStock = QuantityInStock - @Quantidade, 
+                                        UpdatedAt = GETDATE()
+                                    WHERE InstrumentID = @InstrumentID";
 
                             using (SqlCommand comandoUpdate = new SqlCommand(sqlUpdate, conexao))
                             {
@@ -100,6 +132,8 @@ namespace Project_PR2
                                 comandoUpdate.Parameters.AddWithValue("@InstrumentID", instrumentID);
                                 comandoUpdate.ExecuteNonQuery();
                             }
+
+                            decimal total = preco * quantidade;
 
                             MessageBox.Show($"✅ Compra realizada com sucesso!\n\n" +
                                           $"📦 {quantidade}x {nome}\n" +
@@ -109,7 +143,6 @@ namespace Project_PR2
 
                             // Atualizar a lista de instrumentos
                             CarregarTodosDados();
-
                         }
                     }
                 }
@@ -190,22 +223,17 @@ namespace Project_PR2
             if (datagridint.CurrentRow != null)
             {
                 DataGridViewRow row = datagridint.CurrentRow;
+                int instrumentID = Convert.ToInt32(row.Cells[0].Value);
+                int quantidade = 1; // Ou obter de um controle NumericUpDown, se houver
 
-                // ✅ Obter valores corretamente
-                int instrumentID = Convert.ToInt32(row.Cells["InstrumentID"].Value);
-                string nome = row.Cells["Name"].Value.ToString();
-                decimal preco = Convert.ToDecimal(row.Cells["Price"].Value);
-                int quantidade = 1; // Ou do NumericUpDown
-
-                // ✅ Chamar o método
-                ComprarInstrumento(instrumentID, nome, preco, quantidade);
-
-
+                ComprarInstrumento(instrumentID, quantidade);
             }
         }
 
+
     }
-}
+        }
+
 
     
 
