@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcousticGuitar_Screen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AcousticGuitar_Screen.Designer.cs">
-      <DependentUpon>AcousticGuitar_Screen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Buy_or_RegisterInstrument.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,12 +83,6 @@
     <Compile Include="Login_screen.Designer.cs">
       <DependentUpon>Login_screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="PreferredInstrument_screen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PreferredInstrument_screen.Designer.cs">
-      <DependentUpon>PreferredInstrument_screen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.cs">
@@ -110,9 +98,6 @@
       <DependentUpon>Register_instrument_screen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserSession.cs" />
-    <EmbeddedResource Include="AcousticGuitar_Screen.resx">
-      <DependentUpon>AcousticGuitar_Screen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Buy_or_RegisterInstrument.resx">
       <DependentUpon>Buy_or_RegisterInstrument.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,9 +109,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login_screen.resx">
       <DependentUpon>Login_screen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PreferredInstrument_screen.resx">
-      <DependentUpon>PreferredInstrument_screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

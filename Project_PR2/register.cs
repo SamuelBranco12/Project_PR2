@@ -73,7 +73,7 @@ namespace Project_PR2
                                 MessageBox.Show("Registro realizado com sucesso!", "Sucesso",
                                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                Buy_or_RegisterInstrument product = new Buy_or_RegisterInstrument();
+                                Login_screen product = new Login_screen();
                                 this.Visible = false;
                                 product.ShowDialog();
                                 this.Visible = true;

@@ -37,7 +37,7 @@
             this.ENTERbtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ENTERbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ENTERbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ENTERbtn.Location = new System.Drawing.Point(539, 604);
+            this.ENTERbtn.Location = new System.Drawing.Point(648, 604);
             this.ENTERbtn.Name = "ENTERbtn";
             this.ENTERbtn.Size = new System.Drawing.Size(103, 40);
             this.ENTERbtn.TabIndex = 0;

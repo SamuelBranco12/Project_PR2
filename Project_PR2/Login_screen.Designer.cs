@@ -115,7 +115,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Project_PR2.Properties.Resources.Captura_de_tela_2025_09_02_122559;
-            this.ClientSize = new System.Drawing.Size(1178, 699);
+            this.ClientSize = new System.Drawing.Size(1201, 699);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Enterbtn);

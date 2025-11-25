@@ -19,7 +19,7 @@ namespace Project_PR2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PreferredInstrument_screen product = new PreferredInstrument_screen();
+           Drums_screen product = new Drums_screen();
             this.Visible = false;
             product.ShowDialog();
             this.Visible = true;
