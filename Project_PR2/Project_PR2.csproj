@@ -121,6 +121,9 @@
     <EmbeddedResource Include="Login_screen.resx">
       <DependentUpon>Login_screen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="notafiscal.resx">
+      <DependentUpon>notafiscal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pay_screen.resx">
       <DependentUpon>pay_screen.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +226,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Captura de tela 2025-12-02 090830.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-12-02 105449.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de tela 2025-12-02 115748.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

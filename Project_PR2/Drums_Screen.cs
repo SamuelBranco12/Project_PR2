@@ -39,11 +39,8 @@ namespace Project_PR2
                     }
                 }
             }
-
-
-
         }
-       
+
         private void ConfigurarDataGridView()
         {
             datagridint.BackgroundColor = Color.White;
@@ -58,13 +55,9 @@ namespace Project_PR2
 
         private void Drums_Screen_Load(object sender, EventArgs e)
         {
-
             CarregarTodosDados();
             ConfigurarDataGridView();
-
         }
-
-
 
         private void textpesq1_TextChanged(object sender, EventArgs e)
         {
@@ -99,29 +92,46 @@ namespace Project_PR2
             }
         }
 
-
-       
-         
-
         private void datagridint_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // Pode deixar vazio ou remover
         }
 
         private void confirmbtn_Click(object sender, EventArgs e)
         {
+            // Código simplificado acima (apenas abre PaymentScreen)
             if (datagridint.CurrentRow != null)
             {
                 DataGridViewRow row = datagridint.CurrentRow;
-                int instrumentID = Convert.ToInt32(row.Cells[0].Value);
-                int quantidade = 1; // Ou obter de um controle NumericUpDown, se houver
 
+                int instrumentID = Convert.ToInt32(row.Cells[0].Value);
+                string nome = row.Cells[1].Value.ToString();
+                string marca = row.Cells[2].Value.ToString();
+                string categoria = row.Cells[3].Value.ToString();
+                decimal preco = Convert.ToDecimal(row.Cells[4].Value);
+                int estoqueAtual = Convert.ToInt32(row.Cells[5].Value);
+                int quantidade = 1;
+
+                if (estoqueAtual < quantidade)
+                {
+                    MessageBox.Show($"Estoque insuficiente! Disponível: {estoqueAtual} unidades",
+                        "Studio Shodwe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                pay_screen pagamento = new pay_screen(
+                    instrumentID, nome, marca, categoria, preco, quantidade);
+
+                DialogResult resultado = pagamento.ShowDialog();
+
+                if (resultado == DialogResult.OK)
+                {
+                    CarregarTodosDados();
+                }
             }
         }
-
-
     }
-        }
+}
 
 
     

@@ -105,5 +105,13 @@ namespace Project_PR2
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Buy_or_RegisterInstrument product = new Buy_or_RegisterInstrument();
+            this.Visible = false;
+            product.ShowDialog();
+            this.Visible = true;
+        }
     }
 }
